@@ -1,12 +1,14 @@
 $(document).ready(function() {
   getList();
 
-  //
+  // Ad ogni click sul pulsante "Aggiungi"
   $('#todo-add').click(function() {
+
     // Leggo il valore della input
     var inputText = $('#todo-text').val();
 
-    // Se non è nullo, eseguo una chiamata ajax per appendere gli elementi alla lista (metodo POST),
+    // Se non è nullo, eseguo una chiamata ajax per appendere
+    // gli elementi alla lista (metodo POST),
     // richiamando la funzione getList()
     if(inputText.length > 0) {
       $.ajax(
@@ -31,13 +33,15 @@ $(document).ready(function() {
   }
 );
 
-// Evento di cancellazione di ogni singolo elemento al click su ciascun pulsante "Elimina"
+// Evento di cancellazione di ogni singolo elemento
+ // al click su ciascun pulsante "Elimina"
 $(document).on('click', '.delete',
 function() {
   // Richiamo l'id assegnato casualmente dal server a ciascun elemento creato
   var id = $(this).parent().attr('data-id');
 
-  // Eseguo la chiamata ajax per cancellare un elemento sia dalla pagina sia dal server (metodo DELETE)
+  // Eseguo la chiamata ajax per cancellare
+   // un elemento sia dalla pagina sia dal server (metodo DELETE)
   $.ajax(
     {
       url: 'http://157.230.17.132:3008/todos/' + id,
